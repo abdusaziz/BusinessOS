@@ -5,6 +5,9 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -24,6 +27,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'company_id',
+        'branch_id'
     ];
 
     /**
@@ -48,4 +53,33 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+    public function managedBranches(): HasMany
+    {
+        return $this->hasMany(Branch::class, 'manager_id');
+    }
+
+    public function devices(): HasMany
+    {
+        return $this->hasMany(UserDevice::class);
+    }
+    public function branches(): BelongsToMany
+{
+    return $this->belongsToMany(Branch::class)
+        ->withPivot([
+            'is_default',
+            'is_active'
+        ])
+        ->withTimestamps();
+}
 }
