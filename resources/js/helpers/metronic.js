@@ -76,4 +76,15 @@ export function initMetronic(root = document) {
   if (window.KTTogglePassword && typeof window.KTTogglePassword.init === 'function') {
     window.KTTogglePassword.init()
   }
+
+  // KTModal may also need to be initialized if used
+  if (window.KTModal && typeof window.KTModal.init === 'function') {
+    window.KTModal.init()
+  }
+
+  // KTTabs may also need to be initialized if used
+  if (window.KTTabs && typeof window.KTTabs.init === 'function') {
+    window.KTTabs.init()
+  }
+  
 }

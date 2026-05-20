@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 /* Import Metronic theme styles here relative to your resource root */
-@import '../js/metronic/assets/css/styles.css';
+/* @import '../js/metronic/assets/css/styles.css'; */
 
 @import 'tailwindcss';
 

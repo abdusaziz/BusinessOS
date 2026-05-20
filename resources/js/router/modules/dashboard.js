@@ -8,5 +8,13 @@ export default [
             requiresAuth: true,
         }
     },
+    {
+        path: '/test',
+        name: 'Test',
+        component: () => import('../../views/dashboard/Test.vue'),
+        meta: {
+            requiresAuth: true,
+        }
+    },
 
 ]
