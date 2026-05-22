@@ -3,7 +3,7 @@ export default [
     {
         path: '/',
         name: 'Dashboard',
-        component: () => import('../../views/dashboard/DashboardView.vue'),
+        component: () => import('../../modules/Admin/dashboard/DashboardView.vue'),
         meta: {
             requiresAuth: true,
         }
@@ -11,7 +11,7 @@ export default [
     {
         path: '/test',
         name: 'Test',
-        component: () => import('../../views/dashboard/Test.vue'),
+        component: () => import('../../modules/Admin/dashboard/Test.vue'),
         meta: {
             requiresAuth: true,
         }
