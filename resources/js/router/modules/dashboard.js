@@ -1,20 +1,26 @@
+import AdminLayout from '@/components/AdminLayout.vue'
+
 export default [
 
     {
         path: '/',
-        name: 'Dashboard',
-        component: () => import('../../modules/Admin/dashboard/DashboardView.vue'),
+        component: AdminLayout,
+
         meta: {
             requiresAuth: true,
-        }
-    },
-    {
-        path: '/test',
-        name: 'Test',
-        component: () => import('../../modules/Admin/dashboard/Test.vue'),
-        meta: {
-            requiresAuth: true,
-        }
-    },
+        },
+
+        children: [
+
+            {
+                path: '',
+                name: 'Dashboard',
+                component: () => import('../../modules/Admin/dashboard/DashboardView.vue'),
+                meta: {
+                    permission: 'dashboard.view',
+                }
+            },
+        ]
+    }
 
 ]

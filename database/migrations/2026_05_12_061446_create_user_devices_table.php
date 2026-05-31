@@ -30,6 +30,10 @@ return new class extends Migration
             
             // 5. Operational timestamps
             $table->timestamp('last_login_at')->useCurrent();
+            $table->string('browser')->nullable();
+            $table->string('platform')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->timestamp('logout_at')->nullable();
             $table->timestamps();
 
             // 6. Index declarations optimizing search performance on lookup queries

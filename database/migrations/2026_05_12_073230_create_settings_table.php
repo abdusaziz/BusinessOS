@@ -47,6 +47,14 @@ return new class extends Migration
             | boolean
             | json
             | array
+
+            | Key            | Value   |
+            | -------------- | ------- |
+            | tax_rate       | 15      |
+            | invoice_prefix | INV     |
+            | barcode_type   | CODE128 |
+            | email_driver   | smtp    |
+
             */
 
             $table->boolean('is_public')->default(false);

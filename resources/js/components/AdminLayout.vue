@@ -1,4 +1,5 @@
 <script setup>
+import {RouterView} from 'vue-router';
 import { onMounted, nextTick } from 'vue'
 import { initMetronic } from '@/helpers/metronic'
 import AppSidebar from './layout/AppSidebar.vue'
@@ -28,10 +29,10 @@ onMounted(async () => {
                 <div class="flex flex-col grow kt-scrollable-y-auto lg:[--scrollbar-width:auto] pt-5" id="scrollable_content">
                     <main class="grow" role="content">
                         <!-- Toolbar -->
-                        <AppToolbar />
+                        <!-- <AppToolbar /> -->
                         <!-- End of Toolbar -->
                         <!-- Container -->
-                        <slot />
+                        <RouterView />
                         <!-- End of Container -->
                     </main>
                 </div>

@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, nextTick } from 'vue'
 import { initMetronic } from '@/helpers/metronic'
+import { RouterView } from 'vue-router';
 
 onMounted(async () => {
   await nextTick()
@@ -14,12 +15,11 @@ onMounted(async () => {
             <!-- Container -->
             <div class="kt-container-fixed flex items-center justify-between flex-wrap gap-3">
                 <a href="html/demo8.html">
-                    <img class="dark:hidden min-h-[30px]" src="/storage/app/public/theme/assets/media/app/mini-logo-gray.svg" />
-                    <img class="hidden dark:block min-h-[30px]" src="/storage/app/public/theme/assets/media/app/mini-logo-gray-dark.svg" />
+                    <img class="dark:hidden min-h-[30px]" src="/storage/assets/media/app/mini-logo-gray.svg" />
+                    <img class="hidden dark:block min-h-[30px]" src="/storage/assets/media/app/mini-logo-gray-dark.svg" />
                 </a>
                 <button class="kt-btn kt-btn-icon kt-btn-ghost -me-1" data-kt-drawer-toggle="#sidebar">
-                    <i class="ki-filled ki-menu">
-                    </i>
+                    <i class="ki-filled ki-menu"></i>
                 </button>
             </div>
             <!-- End of Container -->

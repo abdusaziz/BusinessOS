@@ -54,7 +54,7 @@ const logout = async () => {
                                 </span>
                                 <span
                                     class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
-                                    Profiles
+                                    Admin
                                 </span>
                             </div>
                             <div
@@ -64,7 +64,7 @@ const logout = async () => {
                                     data-kt-menu-item-trigger="click|lg:hover">
                                     <div class="kt-menu-link grow cursor-pointer">
                                         <span class="kt-menu-title">
-                                            Profiles
+                                            Users
                                         </span>
                                         <span class="kt-menu-arrow">
                                             <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
@@ -73,98 +73,36 @@ const logout = async () => {
                                     </div>
                                     <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
                                         <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/public-profile/profiles/default.html">
+                                            <RouterLink class="kt-menu-link"
+                                                :to="{name: 'Users'}">
                                                 <span class="kt-menu-title">
-                                                    Default
+                                                    User list
                                                 </span>
-                                            </a>
+                                            </RouterLink>
                                         </div>
                                         <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/public-profile/profiles/creator.html">
+                                            <RouterLink class="kt-menu-link"
+                                                :to="{name: 'UserCreate'}">
                                                 <span class="kt-menu-title">
-                                                    Creator
+                                                    Create User
                                                 </span>
-                                            </a>
+                                            </RouterLink>
                                         </div>
                                         <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/public-profile/profiles/company.html">
+                                            <RouterLink class="kt-menu-link"
+                                                 :to="{name: 'UserEdit', params: {id: 1}}">
                                                 <span class="kt-menu-title">
-                                                    Company
+                                                    Update User
                                                 </span>
-                                            </a>
+                                            </RouterLink>
                                         </div>
                                         <div class="kt-menu-item">
                                             <a class="kt-menu-link" href="html/demo8/public-profile/profiles/nft.html">
                                                 <span class="kt-menu-title">
-                                                    NFT
+                                                    Status toggle
                                                 </span>
                                             </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/public-profile/profiles/blogger.html">
-                                                <span class="kt-menu-title">
-                                                    Blogger
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link" href="html/demo8/public-profile/profiles/crm.html">
-                                                <span class="kt-menu-title">
-                                                    CRM
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
-                                            data-kt-menu-item-toggle="accordion|lg:dropdown"
-                                            data-kt-menu-item-trigger="click|lg:hover">
-                                            <div class="kt-menu-link grow cursor-pointer">
-                                                <span class="kt-menu-title">
-                                                    More
-                                                </span>
-                                                <span class="kt-menu-arrow">
-                                                    <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
-                                                    </i>
-                                                </span>
-                                            </div>
-                                            <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
-                                                <div class="kt-menu-item">
-                                                    <a class="kt-menu-link"
-                                                        href="html/demo8/public-profile/profiles/gamer.html">
-                                                        <span class="kt-menu-title">
-                                                            Gamer
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                                <div class="kt-menu-item">
-                                                    <a class="kt-menu-link"
-                                                        href="html/demo8/public-profile/profiles/feeds.html">
-                                                        <span class="kt-menu-title">
-                                                            Feeds
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                                <div class="kt-menu-item">
-                                                    <a class="kt-menu-link"
-                                                        href="html/demo8/public-profile/profiles/plain.html">
-                                                        <span class="kt-menu-title">
-                                                            Plain
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                                <div class="kt-menu-item">
-                                                    <a class="kt-menu-link"
-                                                        href="html/demo8/public-profile/profiles/modal.html">
-                                                        <span class="kt-menu-title">
-                                                            Modal
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div>                                      
                                     </div>
                                 </div>
                                 <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
@@ -172,7 +110,7 @@ const logout = async () => {
                                     data-kt-menu-item-trigger="click|lg:hover">
                                     <div class="kt-menu-link grow cursor-pointer">
                                         <span class="kt-menu-title">
-                                            Projects
+                                            Roles
                                         </span>
                                         <span class="kt-menu-arrow">
                                             <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
@@ -181,10 +119,34 @@ const logout = async () => {
                                     </div>
                                     <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
                                         <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/public-profile/projects/3-columns.html">
+                                            <RouterLink class="kt-menu-link"
+                                                :to="{name: 'Roles'}">
                                                 <span class="kt-menu-title">
-                                                    3 Columns
+                                                    Role list
+                                                </span>
+                                            </RouterLink>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <RouterLink class="kt-menu-link"
+                                                :to="{name: 'RoleCreate'}">
+                                                <span class="kt-menu-title">
+                                                    Role Create
+                                                </span>
+                                            </RouterLink>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <RouterLink class="kt-menu-link"
+                                                :to="{name: 'RoleEdit', params: {id: 1}}">
+                                                <span class="kt-menu-title">
+                                                    Role Edit
+                                                </span>
+                                            </RouterLink>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/public-profile/projects/2-columns.html">
+                                                <span class="kt-menu-title">
+                                                    Permission matrix
                                                 </span>
                                             </a>
                                         </div>
@@ -192,18 +154,18 @@ const logout = async () => {
                                             <a class="kt-menu-link"
                                                 href="html/demo8/public-profile/projects/2-columns.html">
                                                 <span class="kt-menu-title">
-                                                    2 Columns
+                                                    Assign permissions dynamically
                                                 </span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/public-profile/works.html">
+                                    <RouterLink class="kt-menu-link" :to="{name: 'PermissionMatrix'}">
                                         <span class="kt-menu-title">
-                                            Works
+                                            Permission Matrix
                                         </span>
-                                    </a>
+                                    </RouterLink>
                                 </div>
                                 <div class="kt-menu-item">
                                     <a class="kt-menu-link" href="html/demo8/public-profile/teams.html">
@@ -231,7 +193,7 @@ const logout = async () => {
                                     data-kt-menu-item-trigger="click|lg:hover">
                                     <div class="kt-menu-link grow cursor-pointer">
                                         <span class="kt-menu-title">
-                                            More
+                                            Permissions
                                         </span>
                                         <span class="kt-menu-arrow">
                                             <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
@@ -243,7 +205,7 @@ const logout = async () => {
                                             <a class="kt-menu-link"
                                                 href="html/demo8/public-profile/campaigns/card.html">
                                                 <span class="kt-menu-title">
-                                                    Campaigns - Card
+                                                    Dynamic permission checkbox system
                                                 </span>
                                             </a>
                                         </div>
@@ -251,7 +213,7 @@ const logout = async () => {
                                             <a class="kt-menu-link"
                                                 href="html/demo8/public-profile/campaigns/list.html">
                                                 <span class="kt-menu-title">
-                                                    Campaigns - List
+                                                    Grouped by module
                                                 </span>
                                             </a>
                                         </div>

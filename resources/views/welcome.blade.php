@@ -14,7 +14,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 <head>
     <base href="../../">
     <title>
-        Metronic - Tailwind CSS
+        BusinessOS
     </title>
     <meta charset="utf-8" />
     <meta content="follow, index" name="robots" />

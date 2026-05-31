@@ -86,5 +86,15 @@ export function initMetronic(root = document) {
   if (window.KTTabs && typeof window.KTTabs.init === 'function') {
     window.KTTabs.init()
   }
+
+  // data-kt-datatable may also need to be initialized if used
+  if (window.KTDatatable && typeof window.KTDatatable.init === 'function') {
+    window.KTDatatable.init()
+  }
+
+  // data-kt-datatable-table may also need to be initialized if used
+  if (window.KTDatatableTable && typeof window.KTDatatableTable.init === 'function') {
+    window.KTDatatableTable.init()
+  }
   
 }

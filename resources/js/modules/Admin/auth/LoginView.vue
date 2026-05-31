@@ -10,7 +10,7 @@
                         <span class="text-sm text-secondary-foreground me-1.5">
                             Need an account?
                         </span>
-                        <a class="text-sm link" href="html/demo8/authentication/classic/sign-up.html">
+                        <a class="text-sm link" href="#">
                             Sign up
                         </a>
                     </div>
@@ -18,14 +18,14 @@
                 <div class="grid grid-cols-2 gap-2.5">
                     <a class="kt-btn kt-btn-outline justify-center" href="#">
                         <img alt="" class="size-3.5 shrink-0"
-                            src="../../metronic/assets/media/brand-logos/google.svg" />
+                            src="/storage/assets/media/brand-logos/google.svg" />
                         Use Google
                     </a>
                     <a class="kt-btn kt-btn-outline justify-center" href="#">
                         <img alt="" class="size-3.5 shrink-0 dark:hidden"
-                            src="../../metronic/assets/media/brand-logos/apple-black.svg" />
+                            src="/storage/assets/media/brand-logos/apple-black.svg" />
                         <img alt="" class="size-3.5 shrink-0 light:hidden"
-                            src="../../metronic/assets/media/brand-logos/apple-white.svg" />
+                            src="/storage/assets/media/brand-logos/apple-white.svg" />
                         Use Apple
                     </a>
                 </div>
@@ -52,7 +52,7 @@
                             Password
                         </label>
                         <a class="text-sm kt-link shrink-0"
-                            href="html/demo8/authentication/classic/reset-password/enter-email.html">
+                            href="#">
                             Forgot Password?
                         </a>
                     </div>

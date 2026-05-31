@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\PermissionController;
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
     Route::post('/logout', [AuthController::class, 'logout']);
 
+    // Admin module routes
+    Route::get('/users', [AuthController::class, 'index']);
+    Route::get('/permissions',[PermissionController::class,'index']);
     // POS module routes will go here
     // Route::apiResource('products', ProductController::class);
     // Route::apiResource('sales', SaleController::class);

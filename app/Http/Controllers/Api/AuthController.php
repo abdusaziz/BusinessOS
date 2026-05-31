@@ -54,4 +54,9 @@ class AuthController extends Controller
             "message"   =>  "You have successfully been logged out"
         ]);
     }
+    
+    // *** get All Users Method *** //
+    public function index(){
+        return User::all();
+    }
 }

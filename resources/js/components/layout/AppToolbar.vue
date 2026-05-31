@@ -1,3 +1,17 @@
+<script setup>
+
+import { RouterLink } from 'vue-router'
+const props = defineProps({
+    title: {
+        type: String,
+        default: '',
+    },
+    breadcrumbs: {
+        type: Array,
+        default: () => [],
+    }
+})
+</script>
 <template>
     <div class="pb-5">
         <!-- Container -->
@@ -6,9 +20,14 @@
                 <h1 class="font-medium text-base text-mono">
                 </h1>
                 <div class="flex items-center flex-wrap gap-1 text-sm">
-                    <a class="text-secondary-foreground hover:text-primary" href="html/demo8.html">
-                        Home
-                    </a>
+                    <template v-for="(breadcrumb, index) in breadcrumbs" :key="index">
+                        <RouterLink :to="{name :breadcrumb.link}" class="text-primary hover:underline">
+                            {{ breadcrumb.name }}
+                        </RouterLink>
+                        <span v-if="index < breadcrumbs.length - 1" class="text-secondary-foreground">
+                            /
+                        </span>
+                    </template>
                 </div>
             </div>
             <div class="flex items-center flex-wrap gap-1.5 lg:gap-2.5">

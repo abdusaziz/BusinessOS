@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             BranchSeeder::class,
             WarehouseSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
