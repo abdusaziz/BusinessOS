@@ -8,6 +8,8 @@ export default [
 
         meta: {
             requiresAuth: true,
+            menuGroup: 'admin',
+            menuLabel: 'Users',
         },
 
         children: [
@@ -18,6 +20,8 @@ export default [
                 component: () => import('../../modules/Admin/users/UserListView.vue'),
                 meta: {
                     permission: 'user.view',
+                    menuGroup: 'admin',
+                    menuLabel: 'User List',
                 }
             },
 
@@ -27,6 +31,8 @@ export default [
                 component: () => import('../../modules/Admin/users/UserCreateView.vue'),
                 meta: {
                     permission: 'user.create',
+                    menuGroup: 'admin',
+                    menuLabel: 'Create User',
                 }
             },
 
@@ -36,6 +42,8 @@ export default [
                 component: () => import('../../modules/Admin/users/UserEditView.vue'),
                 meta: {
                     permission: 'user.update',
+                    menuGroup: 'admin',
+                    menuLabel: 'Edit User',
                 }
             },
 

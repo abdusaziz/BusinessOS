@@ -4,12 +4,17 @@ import authRoutes from './modules/auth'
 import dashboardRoutes from './modules/dashboard'
 import userRoutes from './modules/users'
 import roleRoutes from './modules/roles'
+import storeRoutes from './modules/store'
+import productsRoutes from './modules/products'
 
 const routes = [
     ...authRoutes,
     ...dashboardRoutes,
     ...userRoutes,
     ...roleRoutes,
+    ...authRoutes,
+    ...storeRoutes,
+    ...productsRoutes,
     // Catch-all route - redirect to dashboard if authenticated, otherwise guard will redirect to login
     { path: '/:pathMatch(.*)*', redirect: '/', meta: { requiresAuth: true } },
 ]

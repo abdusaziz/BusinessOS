@@ -96,5 +96,30 @@ export function initMetronic(root = document) {
   if (window.KTDatatableTable && typeof window.KTDatatableTable.init === 'function') {
     window.KTDatatableTable.init()
   }
+
+  // data-kt-scrollspy-anchor may also need to be initialized if used
+  if (window.KTScrollspyAnchor && typeof window.KTScrollspyAnchor.init === 'function') {
+    window.KTScrollspyAnchor.init()
+  }
+
+  // KTAccordion may also need to be initialized if used
+  if (window.KTAccordion && typeof window.KTAccordion.init === 'function') {
+    window.KTAccordion.init()
+  }
+
+  // KTCollapse may also need to be initialized if used
+  if (window.KTCollapse && typeof window.KTCollapse.init === 'function') {
+    window.KTCollapse.init()
+  }
+
+  // KTSticky may also need to be initialized if used
+  if (window.KTSticky && typeof window.KTSticky.init === 'function') {
+    window.KTSticky.init()
+  }
+
+  // KTScrollspy may also need to be initialized if used
+  if (window.KTScrollspy && typeof window.KTScrollspy.init === 'function') {
+    window.KTScrollspy.init()
+  }
   
 }

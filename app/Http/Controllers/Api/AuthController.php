@@ -56,7 +56,19 @@ class AuthController extends Controller
     }
     
     // *** get All Users Method *** //
-    public function index(){
-        return User::all();
+    public function index(Request $request){
+        $users = User::query();
+
+        if($request->has('search')){
+            $users->where('name', 'like', '%' . $request->search . '%')
+                  ->orWhere('email', 'like', '%' . $request->search . '%')
+                  ->orWhere('username', 'like', '%' . $request->search . '%');
+        }
+        $perpage = $request->per_page ?? 5;
+        $page = $request->page ?? 1;
+// dd($perpage)
+        $paginatedUsers = $users->paginate($perpage, ['*'], 'page', $page);
+        // dd($paginatedUsers);
+        return $this->success($paginatedUsers);
     }
 }

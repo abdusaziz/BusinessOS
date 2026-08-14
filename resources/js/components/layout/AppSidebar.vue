@@ -1,8 +1,15 @@
 <script setup>
-import {RouterLink} from 'vue-router'
+import {RouterLink, useRoute} from 'vue-router'
 import api from '../../services/api'
 import { useAuthStore } from '../../stores/auth'
+import { computed } from 'vue'
 
+console.log(useRoute())
+
+const route = useRoute()
+
+// Returns true if the user is currently on the store setting page
+const isStoreActive = computed(() => route.path === '/users')
 const logout = async () => {
     try {
         await api.post('/logout')
@@ -49,7 +56,207 @@ const logout = async () => {
                                 class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
                                 <span
                                     class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
-                                    <i class="ki-filled ki-profile-circle text-xl">
+                                    <i class="ki-filled ki-handcart text-xl">
+                                    </i>
+                                </span>
+                                <span
+                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
+                                    Store
+                                </span>
+                            </div>
+                            <div
+                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
+                                <div class="kt-menu-item">
+                                    <a class="kt-menu-link" href="#">
+                                        <span class="kt-menu-title">
+                                            Visit Online Store
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name: 'StoreSetting'}">
+                                        <span class="kt-menu-title">
+                                            Settings
+                                        </span>
+                                    </RouterLink>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name: 'StoreOnlineOrders'}">
+                                        <span class="kt-menu-title">
+                                            Online Orders
+                                        </span>
+                                    </RouterLink>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name:'StoreCollections'}">
+                                        <span class="kt-menu-title">
+                                            Collections
+                                        </span>
+                                    </RouterLink>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name:'StoreBanners'}">
+                                        <span class="kt-menu-title">
+                                            Banners
+                                        </span>
+                                    </RouterLink>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name:'StoreSubscribers'}">
+                                        <span class="kt-menu-title">
+                                            Subscribers
+                                        </span>
+                                    </RouterLink>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name:'StoreMessages'}">
+                                        <span class="kt-menu-title">
+                                            Messages
+                                        </span>
+                                    </RouterLink>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name:'StoreInviteCodes'}">
+                                        <span class="kt-menu-title">
+                                            Invite Codes
+                                        </span>
+                                    </RouterLink>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name:'StorePendingCustomers'}">
+                                        <span class="kt-menu-title">
+                                            Pending Customers
+                                        </span>
+                                    </RouterLink>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
+                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
+                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
+                            <div
+                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
+                                <span
+                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
+                                    <i class="ki-filled ki-users text-xl">
+                                    </i>
+                                </span>
+                                <span
+                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
+                                    People
+                                </span>
+                            </div>
+                            <div
+                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
+                                
+                                
+                                
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Customers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Customer
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers With Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers Without Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <a class="kt-menu-link" href="html/demo8/network/get-started.html">
+                                        <span class="kt-menu-title">
+                                            Client Portal
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Suppliers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Supplier
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kt-menu-item" :class="{ here: isStoreActive }" data-kt-menu-item-offset="-10px, 14px"
+                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
+                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
+                            <div
+                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
+                                <span
+                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
+                                    <i class="ki-filled ki-setting-2 text-xl">
                                     </i>
                                 </span>
                                 <span
@@ -228,6 +435,600 @@ const logout = async () => {
                                 </div>
                             </div>
                         </div>
+                        <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
+                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
+                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
+                            <div
+                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
+                                <span
+                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
+                                    <i class="ki-filled ki-simcard-2 text-xl">
+                                    </i>
+                                </span>
+                                <span
+                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
+                                    Products
+                                </span>
+                            </div>
+                            <div
+                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
+                                
+                                
+                                <div class="kt-menu-item">
+                                    <RouterLink class="kt-menu-link" :to="{name:'ProductsCreate'}">
+                                        <i class="ki-filled ki-message-add text-xl"></i>
+                                        <span class="kt-menu-title mx-2">
+                                            Create Product
+                                        </span>
+                                        
+                                    </RouterLink>
+                                </div>
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Customers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Customer
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers With Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers Without Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <a class="kt-menu-link" href="html/demo8/network/get-started.html">
+                                        <span class="kt-menu-title">
+                                            Client Portal
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Suppliers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Supplier
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
+                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
+                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
+                            <div
+                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
+                                <span
+                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
+                                    <i class="ki-filled ki-simcard-2 text-xl">
+                                    </i>
+                                </span>
+                                <span
+                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
+                                    Adjustment
+                                </span>
+                            </div>
+                            <div
+                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
+                                
+                                
+                                
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Customers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Customer
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers With Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers Without Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <a class="kt-menu-link" href="html/demo8/network/get-started.html">
+                                        <span class="kt-menu-title">
+                                            Client Portal
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Suppliers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Supplier
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
+                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
+                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
+                            <div
+                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
+                                <span
+                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
+                                    <i class="ki-filled ki-purchase text-xl">
+                                    </i>
+                                </span>
+                                <span
+                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
+                                    Purchase
+                                </span>
+                            </div>
+                            <div
+                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
+                                
+                                
+                                
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Customers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Customer
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers With Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers Without Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <a class="kt-menu-link" href="html/demo8/network/get-started.html">
+                                        <span class="kt-menu-title">
+                                            Client Portal
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Suppliers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Supplier
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
+                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
+                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
+                            <div
+                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
+                                <span
+                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
+                                    <i class="ki-filled ki-shop text-xl">
+                                    </i>
+                                </span>
+                                <span
+                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
+                                    Sales Return
+                                </span>
+                            </div>
+                            <div
+                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
+                                
+                                
+                                
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Customers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Customer
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers With Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers Without Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <a class="kt-menu-link" href="html/demo8/network/get-started.html">
+                                        <span class="kt-menu-title">
+                                            Client Portal
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Suppliers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Supplier
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
+                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
+                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
+                            <div
+                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
+                                <span
+                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
+                                    <i class="ki-filled ki-shop text-xl">
+                                    </i>
+                                </span>
+                                <span
+                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
+                                    Sales
+                                </span>
+                            </div>
+                            <div
+                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
+                                
+                                
+                                
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Customers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Customer
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Customers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers With Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Customers Without Login
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-menu-item">
+                                    <a class="kt-menu-link" href="html/demo8/network/get-started.html">
+                                        <span class="kt-menu-title">
+                                            Client Portal
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
+                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
+                                    data-kt-menu-item-trigger="click|lg:hover">
+                                    <div class="kt-menu-link grow cursor-pointer">
+                                        <span class="kt-menu-title">
+                                            Suppliers
+                                        </span>
+                                        <span class="kt-menu-arrow">
+                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link"
+                                                href="html/demo8/network/user-cards/mini-cards.html">
+                                                <span class="kt-menu-title">
+                                                    All Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
+                                                <span class="kt-menu-title">
+                                                    Create Supplier
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="kt-menu-item">
+                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
+                                                <span class="kt-menu-title">
+                                                    Import Suppliers
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
                             data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
                             data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
@@ -572,266 +1373,8 @@ const logout = async () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
-                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
-                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
-                            <div
-                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
-                                <span
-                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
-                                    <i class="ki-filled ki-users text-xl">
-                                    </i>
-                                </span>
-                                <span
-                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
-                                    Network
-                                </span>
-                            </div>
-                            <div
-                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/network/get-started.html">
-                                        <span class="kt-menu-title">
-                                            Get Started
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
-                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
-                                    data-kt-menu-item-trigger="click|lg:hover">
-                                    <div class="kt-menu-link grow cursor-pointer">
-                                        <span class="kt-menu-title">
-                                            User Cards
-                                        </span>
-                                        <span class="kt-menu-arrow">
-                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/network/user-cards/mini-cards.html">
-                                                <span class="kt-menu-title">
-                                                    Mini Cards
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/team-crew.html">
-                                                <span class="kt-menu-title">
-                                                    Team Crew
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/author.html">
-                                                <span class="kt-menu-title">
-                                                    Author
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/nft.html">
-                                                <span class="kt-menu-title">
-                                                    NFT
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link" href="html/demo8/network/user-cards/social.html">
-                                                <span class="kt-menu-title">
-                                                    Social
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
-                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
-                                    data-kt-menu-item-trigger="click|lg:hover">
-                                    <div class="kt-menu-link grow cursor-pointer">
-                                        <span class="kt-menu-title">
-                                            User Table
-                                        </span>
-                                        <span class="kt-menu-arrow">
-                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link" href="html/demo8/network/user-table/team-crew.html">
-                                                <span class="kt-menu-title">
-                                                    Team Crew
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/network/user-table/app-roster.html">
-                                                <span class="kt-menu-title">
-                                                    App Roster
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/network/user-table/market-authors.html">
-                                                <span class="kt-menu-title">
-                                                    Market Authors
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/network/user-table/saas-users.html">
-                                                <span class="kt-menu-title">
-                                                    SaaS Users
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/network/user-table/store-clients.html">
-                                                <span class="kt-menu-title">
-                                                    Store Clients
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link" href="html/demo8/network/user-table/visitors.html">
-                                                <span class="kt-menu-title">
-                                                    Visitors
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
-                            data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
-                            data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">
-                            <div
-                                class="kt-menu-link rounded-[9px] border border-transparent kt-menu-item-here:border-border kt-menu-item-here:bg-background kt-menu-link-hover:bg-background kt-menu-link-hover:border-border w-[62px] h-[60px] flex flex-col justify-center items-center gap-1 p-2 grow">
-                                <span
-                                    class="kt-menu-icon kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary text-secondary-foreground">
-                                    <i class="ki-filled ki-handcart text-xl">
-                                    </i>
-                                </span>
-                                <span
-                                    class="kt-menu-title kt-menu-item-here:text-primary kt-menu-item-active:text-primary kt-menu-link-hover:text-primary font-medium text-xs text-secondary-foreground">
-                                    Store
-                                </span>
-                            </div>
-                            <div
-                                class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px] kt-scrollable-y-auto lg:overflow-visible max-h-[50vh]">
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/store-client/home.html">
-                                        <span class="kt-menu-title">
-                                            Home
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/store-client/search-results-grid.html">
-                                        <span class="kt-menu-title">
-                                            Search Results - Grid
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/store-client/search-results-list.html">
-                                        <span class="kt-menu-title">
-                                            Search Results - List
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/store-client/product-details.html">
-                                        <span class="kt-menu-title">
-                                            Product Details
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/store-client/shopping-cart.html">
-                                        <span class="kt-menu-title">
-                                            Shopping Cart
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/store-client/wishlist.html">
-                                        <span class="kt-menu-title">
-                                            Wishlist
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="kt-menu-item" data-kt-menu-item-placement="right-start"
-                                    data-kt-menu-item-toggle="accordion|lg:dropdown"
-                                    data-kt-menu-item-trigger="click|lg:hover">
-                                    <div class="kt-menu-link grow cursor-pointer">
-                                        <span class="kt-menu-title">
-                                            Checkout
-                                        </span>
-                                        <span class="kt-menu-arrow">
-                                            <i class="ki-filled ki-right text-xs rtl:translate rtl:rotate-180">
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-menu-default kt-menu-dropdown gap-0.5 w-[220px]">
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/store-client/checkout/order-summary.html">
-                                                <span class="kt-menu-title">
-                                                    Order Summary
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/store-client/checkout/shipping-info.html">
-                                                <span class="kt-menu-title">
-                                                    Shipping Info
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/store-client/checkout/payment-method.html">
-                                                <span class="kt-menu-title">
-                                                    Payment Method
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="kt-menu-item">
-                                            <a class="kt-menu-link"
-                                                href="html/demo8/store-client/checkout/order-placed.html">
-                                                <span class="kt-menu-title">
-                                                    Order Placed
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/store-client/my-orders.html">
-                                        <span class="kt-menu-title">
-                                            My Orders
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="kt-menu-item">
-                                    <a class="kt-menu-link" href="html/demo8/store-client/order-receipt.html">
-                                        <span class="kt-menu-title">
-                                            Order Receipt
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        
                         <div class="kt-menu-item" data-kt-menu-item-offset="-10px, 14px"
                             data-kt-menu-item-overflow="true" data-kt-menu-item-placement="right-start"
                             data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="click|lg:hover">

@@ -101,11 +101,27 @@
             </label>
             <input class="kt-input" type="text" value="Barcelona"/>
            </div>
-           <div class="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5 mb-2.5">
+           <div class="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5">
             <label class="kt-form-label max-w-56">
              Postcode
             </label>
             <input class="kt-input" type="text" value="08012"/>
+           </div>
+           <div class="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5 mb-2.5">
+            <label class="kt-form-label max-w-56">
+             Role
+            </label>
+            <select class="kt-select">
+             <option>
+              Owner
+             </option>
+             <option>
+              Option 2
+             </option>
+             <option>
+              Option 3
+             </option>
+            </select>
            </div>
            <div class="flex justify-end">
             <button class="kt-btn kt-btn-primary">

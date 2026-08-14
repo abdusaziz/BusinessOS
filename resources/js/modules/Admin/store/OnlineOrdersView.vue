@@ -9,7 +9,7 @@
             <div class="kt-card kt-card-grid min-w-full">
                 <div class="kt-card-header py-5 flex-wrap">
                     <h3 class="kt-card-title">
-                        User's List
+                        Online Orders View
                     </h3>
 
 
@@ -185,8 +185,8 @@
 <script setup>
 import { ref, reactive, onMounted, nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
-import api from '../../../services/api'
-import { useAuthStore } from '../../../stores/auth'
+import api from '../../../services/api.js'
+import { useAuthStore } from '../../../stores/auth.js'
 import { initMetronic } from '@/helpers/metronic'
 import AppToolbar from '../../../components/layout/AppToolbar.vue'
 import { walk } from 'vue/compiler-sfc'
